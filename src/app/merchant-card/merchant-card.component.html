@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem">
+  <img src="{{ urls[merchantIndex] }}" class="card-img-top" alt="cat" />
+  <div class="card-body">
+    <h5 class="card-title">{{ merchant.merchantName | uppercase }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+      Business Type : {{ merchant.businessType }}
+    </h6>
+    <p class="card-text fs-5">
+      <i class="bi bi-geo-alt"></i>{{ merchant.address }}
+    </p>
+    <a
+      [routerLink]="['/merchant', merchant.merchantId]"
+      class="btn btn-outline-primary mt-2"
+      >EXPLORE</a
+    >
+  </div>
+</div>

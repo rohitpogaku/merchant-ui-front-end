@@ -1,0 +1,18 @@
+<div class="card" style="width: 22rem">
+  <img src="{{ product.productImage }}" class="card-img-top" alt="cat" />
+  <div class="card-body">
+    <h5 class="card-title">{{ product.productName }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+      {{ product.descrption }}
+    </h6>
+    <p class="card-text fs-4">
+      Price: ₹<span class="fw-semibold">{{ product.price }}</span>
+    </p>
+    <!-- <a
+        [routerLink]="['/payment']"
+        [queryParams]="{ price: book.price }"
+        class="btn btn-outline-primary mt-2"
+        >BUY NOW</a
+      > -->
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div *ngIf="merchant">
+  <h2 class="display-2 text-center my-5">
+    Welcome to {{ merchant.merchantName }}'s Shop
+  </h2>
+  <div class="row gy-4 gx-4 mb-5" *ngIf="products">
+    <app-product-card
+      class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center"
+      *ngFor="let p of products"
+      [product]="p"
+    ></app-product-card>
+  </div>
+</div>
