@@ -1,0 +1,22 @@
+<input
+  type="text"
+  class="form-control"
+  [formControl]="control"
+  [ngClass]="{ 'is-invalid': showMsg() }"
+/>
+<ng-container *ngIf="control && showMsg()">
+  <div *ngIf="control.errors?.['required']" class="invalid-feedback">
+    Please fill in the field.
+  </div>
+  <div *ngIf="control.errors?.['minlength']" class="invalid-feedback">
+    It must be at least {{ control.errors?.['minlength'].requiredLength }}
+    characters long.
+  </div>
+  <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback">
+    It can't be longer than {{ control.errors?.['maxlength'].requiredLength }}
+    characters long.
+  </div>
+  <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">
+    Incorrect Format
+  </div>
+</ng-container>

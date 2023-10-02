@@ -8,11 +8,11 @@
     <p class="card-text fs-4">
       Price: ₹<span class="fw-semibold">{{ product.price }}</span>
     </p>
-    <!-- <a
-        [routerLink]="['/payment']"
-        [queryParams]="{ price: book.price }"
-        class="btn btn-outline-primary mt-2"
-        >BUY NOW</a
-      > -->
+    <a
+      [routerLink]="['/checkout']"
+      [queryParams]="{ price: product.price, merchantId: product.merchantId }"
+      class="btn btn-outline-primary mt-2"
+      >BUY NOW</a
+    >
   </div>
 </div>

@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="merchant-search-box mx-auto d-flex justify-content-center">
+    <div class="input-group mb-3">
+      <input
+        class="form-control"
+        [formControl]="merchantName"
+        type="text"
+        placeholder="filter payments by merchant name"
+        (keyup.enter)="getPayments()"
+      />
+
+      <button (click)="getPayments()" class="btn btn-primary">
+        Check Payment
+      </button>
+    </div>
+  </div>
+  <div class="accordion" id="accordion" *ngIf="payments && payments.length">
+    <div class="accordion-item" *ngFor="let p of payments">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          [ngClass]="isSelected(p.paymentId) ? '' : 'collapsed'"
+          type="button"
+          data-bs-toggle="collapse"
+          aria-expanded="true"
+          [attr.data-bs-target]="'#payment' + p.paymentId"
+          [attr.aria-target]="'payment' + p.paymentId"
+        >
+          <div class="w-100 d-flex justify-content-between gap-4">
+            <span> Payment #{{ p.paymentId }}</span>
+            <span
+              class="badge fs-6 me-4"
+              [ngClass]="
+                isPaymentSuccessfull(p.paymentStatus)
+                  ? 'text-bg-success'
+                  : isPaymentFailed(p.paymentStatus)
+                  ? 'text-bg-danger'
+                  : 'text-bg-secondary'
+              "
+              >{{ p.paymentStatus }}</span
+            >
+          </div>
+        </button>
+      </h2>
+      <div
+        [id]="'payment' + p.paymentId"
+        class="accordion-collapse collapse"
+        [ngClass]="isSelected(p.paymentId) ? 'show' : ''"
+        data-bs-parent="#accordion"
+      >
+        <div class="accordion-body">
+          <div class="text-end fst-italic w-lighter font-monospace">
+            <small>{{ p.paymentDate | date: "medium" }}</small>
+          </div>
+
+          <p>Paid to : {{ p.merchantName | titlecase }}</p>
+          <p>Paid with card : {{ p.cardNumber }}</p>
+          <p>
+            Amount : ₹<span class="fw-semibold">{{ p.amount }}</span>
+          </p>
+          <small>Remark : {{ p.remark }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="payments && !payments.length" class="display-5 text-center mt-5">
+    No records found
+  </div>
+</div>
