@@ -12,8 +12,8 @@ import { MerchantPageComponent } from './merchant-page/merchant-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { InputComponent } from './input/input.component';
-import { FormControlPipe } from './form-control.pipe';
 import { PaymentsComponent } from './payments/payments.component';
+import { MerchantRegistrationPageComponent } from './merchant-registration-page/merchant-registration-page.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { PaymentsComponent } from './payments/payments.component';
     MerchantPageComponent,
     PaymentPageComponent,
     InputComponent,
-    FormControlPipe,
-    PaymentsComponent
+    PaymentsComponent,
+    MerchantRegistrationPageComponent
   ],
   imports: [
     BrowserModule,

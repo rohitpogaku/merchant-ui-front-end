@@ -1,6 +1,6 @@
 <div *ngIf="merchant">
-  <h2 class="display-2 text-center my-5">
-    Welcome to {{ merchant.merchantName }}'s Shop
+  <h2 class="display-2 text-center mb-5">
+    Welcome to {{ merchant.merchantName | titlecase }}'s Shop
   </h2>
   <div class="row gy-4 gx-4 mb-5" *ngIf="products">
     <app-product-card

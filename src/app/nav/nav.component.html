@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-2">
   <div class="container-fluid container">
     <a class="navbar-brand" [routerLink]="['']">MerchantUI</a>
     <button
@@ -13,28 +13,21 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div class="navbar-nav w-100 d-flex">
         <a
-          class="nav-link"
+          class="nav-link flex-grow-1"
           aria-current="page"
           [routerLink]="['mypayments']"
           [routerLinkActive]="['active']"
-          >My Payments</a
+          >MyPayments</a
         >
-        <!-- <a
-            class="nav-link"
-            aria-current="page"
-            [routerLink]="['payment/status']"
-            [routerLinkActive]="['active']"
-            >Payment Status</a
-          >
-          <a
-            class="nav-link"
-            aria-current="page"
-            [routerLink]="['/merchant/register']"
-            [routerLinkActive]="['active']"
-            >Register Merchant</a
-          > -->
+        <a
+          class="nav-link"
+          aria-current="page"
+          [routerLink]="['merchant/register']"
+          [routerLinkActive]="['active']"
+          >RegisterMerchant</a
+        >
       </div>
       <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">

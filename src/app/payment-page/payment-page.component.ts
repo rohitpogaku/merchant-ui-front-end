@@ -96,7 +96,9 @@ export class PaymentPageComponent implements OnInit{
     let paymentId = +this.paymentResponse.message.split(':')[1];
     console.log(paymentId);
     
-    this.route.navigate(['mypayments'], {queryParams:{id:paymentId}});
+    // this.route.navigate(['mypayments'], {queryParams:{id:paymentId}});
+    this.route.navigate(['mypayments']);
+
   }
 
   goToMerchantPage(){

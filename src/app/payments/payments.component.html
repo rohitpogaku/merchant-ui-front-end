@@ -1,25 +1,51 @@
 <div class="container">
+  <div class="d-flex justify-content-end align-items-baseline gap-3">
+    <p class="fs-4 border-bottom">Search By</p>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="search-by"
+        value="pId"
+        id="search-by1"
+        (change)="searchBy = 'pId'"
+      />
+      <label class="form-check-label" for="search-by1"> Payment ID </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="search-by"
+        value="mName"
+        id="search-by2"
+        checked
+        (change)="searchBy = 'mName'"
+      />
+      <label class="form-check-label" for="search-by2"> Merchant Name </label>
+    </div>
+  </div>
   <div class="merchant-search-box mx-auto d-flex justify-content-center">
     <div class="input-group mb-3">
       <input
         class="form-control"
-        [formControl]="merchantName"
+        [formControl]="searchField"
         type="text"
-        placeholder="filter payments by merchant name"
-        (keyup.enter)="getPayments()"
+        placeholder="filter payments"
+        (keyup.enter)="searchPayments()"
       />
 
-      <button (click)="getPayments()" class="btn btn-primary">
+      <button (click)="searchPayments()" class="btn btn-primary">
         Check Payment
       </button>
     </div>
   </div>
   <div class="accordion" id="accordion" *ngIf="payments && payments.length">
-    <div class="accordion-item" *ngFor="let p of payments">
+    <div class="accordion-item" *ngFor="let p of payments; let i = index">
       <h2 class="accordion-header">
         <button
           class="accordion-button"
-          [ngClass]="isSelected(p.paymentId) ? '' : 'collapsed'"
+          [ngClass]="i == 0 ? '' : 'collapsed'"
           type="button"
           data-bs-toggle="collapse"
           aria-expanded="true"
@@ -45,7 +71,7 @@
       <div
         [id]="'payment' + p.paymentId"
         class="accordion-collapse collapse"
-        [ngClass]="isSelected(p.paymentId) ? 'show' : ''"
+        [ngClass]="i == 0 ? 'show' : ''"
         data-bs-parent="#accordion"
       >
         <div class="accordion-body">
